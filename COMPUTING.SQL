@@ -12,3 +12,31 @@ VALUES
 ('P004', 'Hannah', '2021-01-01', 'F', 50000, 'Manager'),
 ('P006', 'John', '2019-08-10', 'M', 25000, 'Student'),
 ('P007', 'Janice', '1998-06-18', 'F', 32000, 'Manager');
+
+use computing;
+
+CREATE VIEW viewA as SELECT*from patient where designation = 'clerk' ;
+
+create view viewB as select*from patient where pname like 'j%';
+
+CREATE VIEW viewc as SELECT count(*) from patient where gender ='m';
+
+CREATE view viewd as  select * from patient where pno = 'p006' and pno ='p007';
+
+create view viewE as select*from patient where 30000>=charges<=50000;
+
+create VIEW viewF as select*from patient WHERE Charges
+    SUM(Charges) as Total_charges
+    MIN(charges) as Least_paid AND
+    count(*) where gender = 'M';
+
+create view viewG as select*from patient where charges*'1.15';
+
+create view viewH as select*from patient where in Pname;
+
+CREATE VIEW viewJ as SELECT pname from patient ORDER BY 'DESC';
+
+alter table patient add COLUMN Telno int;
+
+insert INTO patient (pno, pname, Gender) VALUES('P008', 'James', 'M');
+
